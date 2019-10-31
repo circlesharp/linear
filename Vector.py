@@ -27,19 +27,16 @@ class Vector:
         return Vector(self._values) / self.norm()
 
     def __add__(self, another):
-        assert len(self) == len(another), \
-            "Error in adding. Length of vectors must be same."
+        assert len(self) == len(another), "Error in adding. Length of vectors must be same."
         return Vector([a + b for a, b in zip(self, another)])  # 返回新的对象，免得改变_values
 
     def __sub__(self, another):
-        assert len(self) == len(another), \
-            "Error in subtracting. Length of vectors must be same."
+        assert len(self) == len(another), "Error in subtracting. Length of vectors must be same."
         return Vector([a - b for a, b in zip(self, another)])
 
     def dot(self, another):
         """向量点乘，返回结果标量"""
-        assert len(self) == len(another), \
-            "Error in dot product. Lenght of vectors must be same."
+        assert len(self) == len(another), "Error in dot product. Lenght of vectors must be same."
         return sum(a*b for a,b in zip(self,another))
 
     def __mul__(self, k):
