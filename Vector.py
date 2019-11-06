@@ -18,6 +18,10 @@ class Vector:
         """返回向量的模"""
         return math.sqrt(sum(e**2 for e in self))  # self已经是可迭代的，详见__iter__
 
+    def underlying_list(self):
+        ''' 返回向量的单位向量 '''
+        return self._values[:]
+
     def normalize(self):
         """返回向量的单位向量"""
         # return Vector([i/self.norm() for i in self])

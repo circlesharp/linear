@@ -25,3 +25,19 @@ if __name__ == '__main__':
     p = np.array([10, 100])
     print('广播——高维与低维运算', A+p, A+1)  # 一般不用广播，explicit is better than implicit
     print(A.dot(p))
+
+    # 单位矩阵
+    I = np.identity(2)
+    print(I)
+    print(A.dot(I))
+    print(I.dot(A))
+
+    # 逆矩阵
+    invA = np.linalg.inv(A)
+    print(invA)
+    print(invA.dot(A))
+    print(A.dot(invA))
+    # C = np.array([[1,2,3], [4,5,6]])
+    # np.linalg.inv(C)  # 不是方阵一定没有逆矩阵 -> must be a square
+
+    

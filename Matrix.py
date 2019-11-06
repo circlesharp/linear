@@ -7,13 +7,22 @@ class Matrix:
     def __init__(self, list2d):
         self._values = [row[:] for row in list2d]  # 对于二维列表每一列复制
     
-    @ classmethod
+    @classmethod
     def zero(cls, r, c):
         ''' 
         返回一个 r行 c列 的零矩阵
         类方法，不需要定义实例去创建零矩阵
         '''
         return cls([[0]*c for _ in range(r)])  # 区分 c, r 的含义： 内层列表的len就是col
+
+    @classmethod
+    def identity(cls, n):
+        ''' 返回一个n行n列的单位矩阵 '''
+        # iden = [[0 for i in range(n)] for j in range(n)]
+        iden = [[0]*n for _ in range(n)]  # 老师的写法
+        for i in range(n):
+            iden[i][i] = 1
+        return cls(iden)  # 我返回的是 Matrix(iden)
 
     def row_vector(self, index):
         ''' 返回矩阵第index个行向量 '''
@@ -25,6 +34,9 @@ class Matrix:
         ''' 返回矩阵pos位置的元素（pos 是元组） '''
         r, c = pos
         return self._values[r][c]
+    def underlying_list(self):
+        ''' 返回向量的单位向量 '''
+        return self._values[:]
 
     def size(self):
         ''' 返回矩阵的元素个数 '''
@@ -106,3 +118,4 @@ if __name__ == '__main__':
     matrix2 = Matrix([[1,2,3,4], [5,6,7,8], [9,10,11,12]])
     print(matrix.dot(matrix2))
     # print(matrix.dot(2))
+    print(Matrix.identity(7))

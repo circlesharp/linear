@@ -43,3 +43,11 @@ if __name__ == "__main__":
 
     print('='*40, '\n', '\n矩阵基本运算\n矩阵转置\n', '='*30)
     print('matrix    => %s\nmatrix.T()=> %s' % (matrix, matrix.T()))
+
+    I2 = Matrix.identity(2)
+    I3 = Matrix.identity(3)
+
+    print('='*40, '\n', '\n矩阵基本运算\n单位矩阵\n', '='*30)
+    print('单位矩阵 I2 = %s\n单位矩阵 I3 = %s' % (I2, I3))
+    print('matrix.dot(I2) = %s' % matrix.dot(I2))
+    print('I3.dot(matrix) = %s' % I3.dot(matrix))
